@@ -78,10 +78,7 @@ let euroSconto = ''
 
  if (codiceSconto.includes[code] = true){
     euroSconto = prezzo*sconto
-} else {
-    euroSconto = prezzo
-}
-
+} 
 
 let prezzoFinale = prezzo - euroSconto
 console.log(prezzoFinale)
