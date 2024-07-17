@@ -33,27 +33,14 @@ if(email === ''){
 }
 
 
-
-
-const codeElement = document.getElementById('code')
-const code = codeElement.value
-codeElement.classList.remove('is-invalid')
-
-if(code === ''){
-    codeElement.classList.add('is-invalid')
-} 
-
-
-
-
 const onorarioBack = 20.50
 const onorarioFront = 15.30
 const onorarioProject = 33.60
 
 
 const oreBase = 10
-let prezzo = ''
 
+let prezzo = ''
 
 const selectWork = document.getElementById('option')
 const selectedWork = selectWork.value
@@ -72,25 +59,32 @@ console.log(prezzo)
 
 const outputPriceElement = document.getElementById('price-output')
 
+
+const codeElement = document.getElementById('code')
+const code = codeElement.value
+codeElement.classList.remove('is-invalid')
+
+if(code === ''){
+    codeElement.classList.add('is-invalid')
+} 
+
 outputPriceElement.innerHTML =   prezzo.toFixed(2) + '&#8364'
 
 const codiceSconto = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
-let sconto = 1
-let prezzoFInale = prezzo*sconto
 
-for(let i = 0; i < codiceSconto.length; i++ ) {
+let sconto = 0.25
 
-    let codiceCorrente = codiceSconto[i]
-    console.log(codiceCorrente)
+let euroSconto = ''
 
-
-    if ( codiceSconto.includes[codiceCorrente]) {
-        sconto === 0.25
-    }
-
+ if (codiceSconto.includes[code] = true){
+    euroSconto = prezzo*sconto
+} else {
+    euroSconto = prezzo
 }
 
-console.log(prezzoFInale)
+
+let prezzoFinale = prezzo - euroSconto
+console.log(prezzoFinale)
 
 
 
@@ -103,23 +97,6 @@ if(check.value === 0 ){
     checkElement.classList.add('is-valid')
 } else {
     checkElement.classList.add('is-invalid')
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
