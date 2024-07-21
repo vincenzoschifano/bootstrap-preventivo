@@ -70,10 +70,15 @@ for (let i = 0; i < codiceSconto.length; i++ ) {
 
    codeElement.classList.remove('is-invalid','is-valid')
 
-   if ( codiceSconto.includes(code) == false) {
-      codeElement.classList.add('is-invalid')
-   } else if ( code == '')
-      codeElement.classList.add('is-valid')
+   if ( code === '') {
+      codeElement.classList.add('form-control')
+   } else if ( codiceSconto.includes(code) == true){
+      codeElement.classList.add('is-valid') }
+      else {
+         codeElement.classList.add('is-invalid')
+
+      }
+      
 }
 console.log(code)
 
