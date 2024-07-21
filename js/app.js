@@ -9,7 +9,7 @@ event.preventDefault()
 const nameElement = document.getElementById('name')
 const name = nameElement.value
 console.log(name)
-nameElement.classList.remove('is-invalid')
+nameElement.classList.remove('is-invalid', name)
 if(name === ''){
     nameElement.classList.add('is-invalid')
 }
@@ -58,17 +58,28 @@ console.log(prezzo)
 const outputPriceElement = document.getElementById('price-output')
 
 //VALIDATION OPTION
+const codiceSconto = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 const codeElement = document.getElementById('code')
 const code = codeElement.value
-codeElement.classList.remove('is-invalid')
 
-if(code === ''){
-    codeElement.classList.add('is-invalid')
- } 
 
-outputPriceElement.innerHTML =   prezzo.toFixed(2) + '&#8364'
+
+for (let i = 0; i < codiceSconto.length; i++ ) {
+
+   let codeCorrente = codiceSconto[i] 
+
+   codeElement.classList.remove('is-invalid','is-valid')
+
+   if ( codiceSconto.includes(code) == false) {
+      codeElement.classList.add('is-invalid')
+   } else if ( code == '')
+      codeElement.classList.add('is-valid')
+}
+console.log(code)
+
+//outputPriceElement.innerHTML =   prezzo.toFixed(2) + '&#8364'
 // CALCOLO PREZZO SCONTATO
-const codiceSconto = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
+
 
 let sconto = 0.25
 
@@ -81,14 +92,16 @@ let euroSconto = ''
 let prezzoFinale = prezzo - euroSconto
 console.log(prezzoFinale)
 
+outputPriceElement.innerHTML =   prezzoFinale.toFixed(2) + '&#8364'
+
 
 //VALIDATION CHECK-BOX
 
 const checkElement = document.getElementById('check')
-const check = checkElement.value
+//const check = checkElement.value
 console.log(check)
 checkElement.classList.remove('is-invalid')
-if(check.value === 0 ) {
+if(checkElement.checked ) {
     checkElement.classList.add('is-valid')
  } else {
     checkElement.classList.add('is-invalid')
